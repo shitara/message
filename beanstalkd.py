@@ -7,8 +7,7 @@ from core.util.json import dumps
 class Connection(object):
 
     def __init__(self, **kwargs):
-        self.conn = Beanstalkd.Connection(
-            host = kwargs.get('host'))
+        self.conn = Beanstalkd.Connection(kwargs.get('host'))
 
     def publish(self, name, value, options = dict()):
         with self.conn.temporary_use(name):
