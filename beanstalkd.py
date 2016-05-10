@@ -13,7 +13,7 @@ class Connection(object):
         with self.conn.temporary_use(name):
             self.conn.put(
                 dumps(value), delay=max(
-                    0, math.ceil(options.get('delay', 0)))
+                    0, math.ceil(dict(options).get('delay', 0)))
                 )
 
     def cancel(self, id):
